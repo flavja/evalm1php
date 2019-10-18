@@ -4,7 +4,7 @@ namespace App\API\Repository;
 
 use App\API\Core\Database;
 
-class CityRepository
+class CountryRepository
 {
 	private $database;
 	private $connection;
@@ -18,12 +18,12 @@ class CityRepository
 	public function findAll():array
 	{
 		$sql = "
-			SELECT city.*
-			FROM destination.city;
+			SELECT country.*
+			FROM destination.country;
 		";
 		$query = $this->connection->prepare($sql);
 		$query->execute();
-		$results = $query->fetchAll(\PDO::FETCH_CLASS, 'App\API\Entity\City');
+		$results = $query->fetchAll(\PDO::FETCH_CLASS, 'App\API\Entity\Country');
 		return  $results;
 	}
 }

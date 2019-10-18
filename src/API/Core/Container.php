@@ -14,6 +14,11 @@ class Container
 					$this->services['repository.city']()
 				);
 			},
+			'controller.countries' => function(){
+				return new \App\API\Controller\CountryController(
+					$this->services['repository.countries']()
+				);
+			},
 			'controller.not.found' => function(){
 				return new \App\API\Controller\NotFoundController();
 			},
@@ -25,8 +30,13 @@ class Container
 					$this->services['core.dotenv']()
 				);
 			},
-			'repository.city' => function(){
-				return new \App\API\Repository\CityRepository(
+			'repository.city' => function() {
+                return new \App\API\Repository\CityRepository(
+                    $this->services['core.database']()
+                );
+            },
+			'repository.countries' => function(){
+				return new \App\API\Repository\CountryRepository(
 					$this->services['core.database']()
 				);
 			},

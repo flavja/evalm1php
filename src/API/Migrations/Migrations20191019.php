@@ -15,5 +15,11 @@ class Migrations20191019 extends AbstractMigrations
 			(NULL, 'tokyo', 'tokyo.jpg'),
 			(NULL, 'londres', 'londres.jpg')
 		;
+		INSERT INTO destination.country
+		VALUES
+			(NULL, 'France', 1),
+			(NULL, 'Angleterre', 3),
+			(NULL, 'Japon', 2)
+		;
 	";
 }
